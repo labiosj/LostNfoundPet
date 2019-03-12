@@ -1,8 +1,8 @@
 # LostNfoundPet
+Welcome to the lostNfound Petfinder app!
 
-HA HA HA!
+APIs We Use
 
-wd.KC WLkdc w;dklsWKDC 
-lweifvewpiofv;oweiFV;OWDNV;OIwndv;oiwdn
-wvl;wdnv;odsncvo;'wd
-
+- Geolocation
+- Facebook
+- Pet Finder API
