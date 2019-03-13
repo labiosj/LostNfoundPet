@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
 
   <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
 
@@ -19,7 +20,59 @@
   <div class="container">
     <h1 class="display-2">LostNFoundPets</h1>
     <p class="lead">Let us help locate your lost pet.</p>
-    <button class="btn btn-outline-danger">Click to Locate your Pet</button>
+    <hr class="my-4">
+    <!--- Adding fields to enter location data-->
+   
+    <div class="dropdown">
+      <input id="locationSearch" value="Enter a zip code">
+      <button class="btn btn-secondary dropdown-toggle distButton" type="button" id="dropdownMenuButton" value="distance" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select Your Distance
+      </button>
+      <div class="dropdown-menu" id="distDropDown" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" id="dist1DropDown" href="#" value="1">1 Miles</a>
+        <a class="dropdown-item" id="dist5DropDown" href="#" value="5">5 Miles</a>
+        <a class="dropdown-item" id="dist500DropDown" href="#" value="500">500 Miles</a>
+      </div>
+    </div>
+     
+    <hr>
+   <!--- Area for filters and additional criteria-->
+    <hr>
+    <button type="button" class="btn btn-primary dogType">Dog</button>
+    <button type="button" class="btn btn-primary catType">Cat</button>
+
+      <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn breedSelect">Select Breed</button>
+          <div id="myDropdown" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+            <a href="#">Breed 1</a>
+            <a href="#">Breed 2</a>
+            <a href="#">Breed 3</a>
+          </div>
+        </div>
+    <!---Adding a button class to locate a pet-->
+    <button class="btn btn-outline-danger petLocate">Click to Locate your Pet</button>
+    <hr>
+    <!----Making a criteria selection grid-->
+  <div id="searchOutput">Search Output Goes Here</div>
+
+   <!--- Area for facebook upload-->
+   <!-- Upload picture to facebook-->
+   <form>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Did you find a Pet? - Enter Description</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+      <label for="facebook-upload">Upload picture to Facebook</label>
+      <input type="file" class="form-control-file" id="facebook-file">
+      <button class="btn btn-secondary" type="button" id="uploadButton" aria-haspopup="true" aria-expanded="false">
+          Upload to Facebook
+        </button>
+    </div>
+  </form>
+   <hr>
+   <!----Making a criteria selection grid-->
+
+  
   </div>
 </div>
 
@@ -30,9 +83,10 @@
  
 <!--   </div> -->
   <!--   </div-->
-
-
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://unpkg.com/popper.js@1.14.7/dist/umd/popper.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.js"></script>
   <script src="./assets/js/app.js"></script>
 </body>
 </html>
