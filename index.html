@@ -25,25 +25,36 @@
    
     <div class="dropdown">
       <input id="locationSearch" value="Enter a zip code">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn btn-secondary dropdown-toggle distButton" type="button" id="dropdownMenuButton" value="distance" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Select Your Distance
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
+      <div class="dropdown-menu" id="distDropDown" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" id="dist1DropDown" href="#" value="1">1 Miles</a>
+        <a class="dropdown-item" id="dist5DropDown" href="#" value="5">5 Miles</a>
+        <a class="dropdown-item" id="dist500DropDown" href="#" value="500">500 Miles</a>
       </div>
     </div>
      
     <hr>
    <!--- Area for filters and additional criteria-->
     <hr>
-    
+    <button type="button" class="btn btn-primary dogType">Dog</button>
+    <button type="button" class="btn btn-primary catType">Cat</button>
+
+      <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn breedSelect">Select Breed</button>
+          <div id="myDropdown" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+            <a href="#">Breed 1</a>
+            <a href="#">Breed 2</a>
+            <a href="#">Breed 3</a>
+          </div>
+        </div>
     <!---Adding a button class to locate a pet-->
     <button class="btn btn-outline-danger petLocate">Click to Locate your Pet</button>
     <hr>
     <!----Making a criteria selection grid-->
-
+  <div id="searchOutput">Search Output Goes Here</div>
   
   </div>
 </div>
