@@ -1,5 +1,29 @@
-/* JS for dropdown When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
+//code for the JS dropdown
+
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+      txtValue = a[i].textContent || a[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
+    }
+  }
+
+//code for the buttons
+
+
+
 let var_type='';
 
 $('.dogType').on("click",  function() {
@@ -20,7 +44,7 @@ $('.dogType').on("click",  function() {
         method: 'GET'
       }).then(function(response) {
         for (i=0;i<response.breeds.length;i++){
-        $('#searchOutput').append(`<a href="#">${response.breeds[i].name}</a>`);
+        $('#appendHere').append(`<a href="#">${response.breeds[i].name}</a>`);
         console.log(response.breeds[i].name);
         }
     
@@ -51,25 +75,7 @@ $.ajax({
   });
 });
 });
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  function filterFunction() {
-    var input, filter, ul, li, a, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    div = document.getElementById("myDropdown");
-    a = div.getElementsByTagName("a");
-    for (i = 0; i < a.length; i++) {
-      txtValue = a[i].textContent || a[i].innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        a[i].style.display = "";
-      } else {
-        a[i].style.display = "none";
-      }
-    }
-  }
+
 fetch("https://api.petfinder.com/v2/oauth2/token", {
   body: "grant_type=client_credentials&client_id=7vPkOzV32lbGFsqbixmd6GU4C5fy4YZfzoeQIssKaQqWeRz7ze&client_secret=PrtarLPlKWCLgUiEITq7EuiC2BmNnm8GOOmNb9d2",
   headers: {
