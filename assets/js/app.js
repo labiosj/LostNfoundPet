@@ -51,6 +51,24 @@ $.ajax({
   });
 });
 });
+
+// function to tweet to Twitter
+
+$('.twitterType').on('click', function() {
+  console.log("Entered Twitter function");
+
+  const msg = $('.tweetDesc').val();
+  console.log(msg);
+$.ajax({
+  url: `https://crossorigin.me/https://api.twitter.com/1.1/statuses/update.json?content-type='application/json'&status='pet found in atlanta - lets find the owner'`,
+  headers: {Authorization: `OAuth`, oauth_consumer_key: `4R9w5u7U8eDTcop1hcN8IQBFP`, oauth_nonce: ``, oauth_signature:`OVjVfTfoqKiRA8Vb3aY3ZPfAbYY%3D`, oauth_signature_method: `HMAC-SHA1`, oauth_timestamp: ``, oauth_token: `1105962514628726785-wAv2flHwMzp6Rbj4K46SIwwmg02sKx`},
+  method: 'POST'
+}).then(function(response) {
+   console.log(response);
+});
+});
+
+
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
