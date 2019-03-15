@@ -1,8 +1,12 @@
 //switching to v.4 bootstrap for the selectpicker
-$.fn.selectpicker.Constructor.BootstrapVersion = '4';
+///$.fn.selectpicker.Constructor.BootstrapVersion = '4';
 
 
 //code for the JS dropdown
+
+
+$('#locationSearch').val(" ");
+
 
 function myFunction() {
    document.getElementById("myDropdown").classList.toggle("show");
@@ -78,3 +82,36 @@ const petDetails= function(){
 });
 };
 $('.petLocate').on('click', petDetails);
+
+// zipCode function
+
+function retrieve_zip() {
+   if (navigator.geolocation) {
+     navigator.geolocation.getCurrentPosition(function(position) {
+       var callback = "zipcode_callback",
+         lat = position.coords.latitude,
+         long = position.coords.longitude,
+         script = document.createElement("script");
+
+       script.src = "https://open.mapquestapi.com/nominatim/v1/reverse.php?key=TKvEQYC9Z0USuLAUEZw1JpdX9wAT9Jso&format=json&json_callback=" +
+         callback +
+         "&lat=" + lat +
+         "&lon=" + long;
+
+       //document.getElementsByTagName("head")[0].appendChild(script);
+     });
+   }
+ }
+
+ function zipcode_callback(json) {
+   const zip_code = json.display_name.split(',');
+   var zipCode = zip_code[5];
+   $('#locationSearch').val(" zipCode ");
+   // $("#locationSearch").empty();
+   console.log(zipCode);
+   $('#locationSearch').val(zipCode);
+   
+ }
+
+ // call the method
+ retrieve_zip();
