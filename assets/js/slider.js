@@ -98,7 +98,7 @@ const DataHandler = function () {
     }
 
     const _populateTemplate = function (data) {
-        var html = template(data[clickCount]);
+        var html = template(data.animals[clickCount]);
         slideList.innerHTML = '';
         slideList.innerHTML += html;
         console.log(template);
