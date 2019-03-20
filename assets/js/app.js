@@ -1,3 +1,53 @@
+
+///ZIP CODE STUFF
+
+//capture the zip code
+
+function retrieve_zip() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var callback = "zipcode_callback",
+        lat = position.coords.latitude,
+        long = position.coords.longitude,
+        script = document.createElement("script");
+
+      script.src = "https://open.mapquestapi.com/nominatim/v1/reverse.php?key=TKvEQYC9Z0USuLAUEZw1JpdX9wAT9Jso&format=json&json_callback=" +
+        callback +
+        "&lat=" + lat +
+        "&lon=" + long;
+
+      document.getElementsByTagName("head")[0].appendChild(script);
+    });
+  }
+}
+
+var zipCode;
+
+function zipcode_callback(json) {
+  const zip_code = json.display_name.split(',');
+  var zipCode = zip_code[5];
+  $('#locationSearch').val(" zipCode ");
+  // $("#locationSearch").empty();
+  console.log(zipCode);
+  $('#locationSearch').val(zipCode);
+
+}
+
+// call the method
+retrieve_zip();
+
+//DISTANCE STUFF
+var distanceVal;
+
+$(document).ready(function () {
+  $("#distSelect").change(function () {
+  distanceVal = $(this);
+  alert(distanceVal.val()); 
+   })
+  
+  });
+
+
 //code for the JS dropdown
 
 let animalsArray = [];
@@ -50,11 +100,9 @@ method: "POST"
       $('#breedSelect').append(`<option value="${response.breeds[i].name}">${response.breeds[i].name}</option>`);
        console.log(`${response.breeds[i].name}`)
        }
-    //   $('.breedSelect').selectpicker('refresh');
-    //$("#breedSelect").append('<option value="'+"Casper"+'">'+"Casper"+'</option>');
+ 
     $("#breedSelect").selectpicker('refresh');
 
-    ///   $(".breedSelect").selectpicker("refresh");
     
      });});
    };
@@ -82,42 +130,10 @@ const petDetails= function(){
           
            animalsArray = [...response.animals];
            console.log(animalsArray);
+           console.log(zipCode);
+           console.log(distanceVal);
            });
 });
 
 };
 $('.petLocate').on('click', petDetails);
-
-
-// zipCode function
-
-function retrieve_zip() {
-   if (navigator.geolocation) {
-     navigator.geolocation.getCurrentPosition(function(position) {
-       var callback = "zipcode_callback",
-         lat = position.coords.latitude,
-         long = position.coords.longitude,
-         script = document.createElement("script");
-
-       script.src = "https://open.mapquestapi.com/nominatim/v1/reverse.php?key=TKvEQYC9Z0USuLAUEZw1JpdX9wAT9Jso&format=json&json_callback=" +
-         callback +
-         "&lat=" + lat +
-         "&lon=" + long;
-
-       document.getElementsByTagName("head")[0].appendChild(script);
-     });
-   }
- }
-
- function zipcode_callback(json) {
-   const zip_code = json.display_name.split(',');
-   var zipCode = zip_code[5];
-   $('#locationSearch').val(" zipCode ");
-   // $("#locationSearch").empty();
-   console.log(zipCode);
-   $('#locationSearch').val(zipCode);
-
- }
-
- // call the method
- retrieve_zip();

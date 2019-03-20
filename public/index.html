@@ -22,23 +22,25 @@
   <div class="container">
     <h1 class="display-2">LostNFoundPets</h1>
     <p class="lead">Let us help locate your lost pet.</p>
-    <hr class="my-4">
+    <br>
+   
     <!--- Adding fields to enter location data-->
    
     <div class="dropdown">
-      Enter your zipcode<input id="locationSearch" value="Enter a zip code">
-
-    
+      Enter your zipcode <input class="form-control" id="locationSearch" value="Enter a zip code">
+      <br>
+      <br>
     </div>
+
     <select class="selectpicker" id="distSelect" title="Choose your distance">
         <option value="1">1 Miles</option>
         <option value="5">5 Miles</option>
         <option value="500">500 Miles</option>
       </select>
       
-    <hr>
+    <br>
    <!--- Area for filters and additional criteria-->
-    <hr>
+    <br>
     <button type="button" class="btn btn-primary dogType">Dog</button>
     <button type="button" class="btn btn-primary catType">Cat</button>
     
@@ -46,7 +48,6 @@
    
       
     <select class="selectpicker" id="breedSelect" title="Select a breed" data-live-search="true">
-        <option class="testSelect" value="5">I am blank option</option>
 
         
       </select>
