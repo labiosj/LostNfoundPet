@@ -12,7 +12,7 @@ body, html {
     background-repeat: no-repeat;
     background-attachment: fixed;
     color:white !important;
-    height:540px;
+    height:940px;
 }
 
 .container {
@@ -102,3 +102,200 @@ h5 {
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+/* CSS for Slider window */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom, #020111 10%, #3a3a52 100%);
+  color: #333;
+  height: auto;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+@media (min-width: 750px) {
+  body {
+    overflow: hidden;
+    height: 100vh;
+  }
+}
+
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.slider {
+  position: relative;
+  width: 80%;
+  margin: 3em auto 0;
+  min-height: 400px;
+}
+@media (min-width: 750px) {
+  .slider {
+    width: 450px;
+    height: 500px;
+  }
+}
+.slider.is-loading .slider__loader {
+  display: block;
+}
+.slider__loader {
+  display: none;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  z-index: 20;
+  border: solid 3px;
+  border-color: #fff transparent;
+  border-radius: 50%;
+  -webkit-animation: rotate 0.8s ease-in-out infinite;
+          animation: rotate 0.8s ease-in-out infinite;
+}
+.slider__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.slider__card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  margin-bottom: 2em;
+  transition: all 0.6s ease;
+  background-color: #fff;
+  visibility: hidden;
+  opacity: 0;
+}
+.slider__card.is-active {
+  visibility: visible;
+  opacity: 1;
+}
+.slider__card.is-loading {
+  opacity: 0;
+}
+.slider__cardHeader {
+  height: 140px;
+  background-color: #ec008c;
+  display: flex;
+  align-items: center;
+  padding: 0 1.25em;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  position: relative;
+}
+@media (min-width: 750px) {
+  .slider__cardHeader {
+    height: 240px;
+  }
+}
+.slider__cardHeader::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(-135deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  z-index: 1;
+}
+.slider__cardHeaderImage {
+  margin-right: 1em;
+  width: 60px;
+  height: auto;
+  display: block;
+  border-radius: 60px;
+  border: 0.125em solid #fff;
+  z-index: 10;
+}
+@media (min-width: 750px) {
+  .slider__cardHeaderImage {
+    width: 100px;
+    border-radius: 100px;
+    border: 0.25em solid #fff;
+  }
+}
+.slider__cardHeaderTitle {
+  font-family: "industry";
+  color: #fff;
+  margin: 0;
+  line-height: 1.125;
+  font-size: 1.25em;
+  font-weight: 300;
+  z-index: 10;
+}
+@media (min-width: 750px) {
+  .slider__cardHeaderTitle {
+    font-size: 2.25em;
+  }
+}
+.slider__cardContent {
+  padding: 1.25em;
+  font-size: 0.875em;
+  line-height: 1.45;
+  position: relative;
+  flex-grow: 1;
+}
+.slider__cardContent p {
+  margin-top: 0;
+  padding-bottom: 1.5em;
+}
+.slider__cardMeta {
+  position: absolute;
+  bottom: 1.25em;
+  left: 1.25m;
+  color: #999;
+}
+.slider__nav {
+  position: absolute;
+  top: 50%;
+  width: 3em;
+  height: 3em;
+  cursor: pointer;
+  color: #fff;
+  transition: opacity 0.3s ease;
+}
+.slider__nav.is-active {
+  opacity: 1;
+}
+.slider__nav.is-inActive {
+  opacity: 0.5;
+  cursor: default;
+}
+.slider__nav svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.slider__nav--prev {
+  left: 0;
+  -webkit-transform: translateY(-50%) translateX(-100%);
+          transform: translateY(-50%) translateX(-100%);
+}
+.slider__nav--next {
+  right: 0;
+  -webkit-transform: translateY(-50%) translateX(100%);
+          transform: translateY(-50%) translateX(100%);
+}

@@ -6,10 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+    <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/css/bootstrap-select.min.css"> -->
 
   <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
-
+  <!-- <script src="https://use.typekit.net/vms5sey.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script> -->
     <title>LostNFoundPet</title>
 </head>
 
@@ -60,6 +63,26 @@
     <!---Adding a button class to locate a pet-->
     <button class="btn btn-outline-danger petLocate">Click to Locate your Pet</button>
     <hr>
+    <div class="container">
+        <!--Adding the leaflet.js Map objects Here, still needs work but it a working placeholder-->
+        <div id = "map" style = "width: 500px; height: 380px"></div>
+              <script>
+                 // Creating map options
+                 var mapOptions = {
+                    center: [33.8395486, -84.3793711],
+                    zoom: 15
+                 }
+                 // Creating a map object
+                 var map = new L.map('map', mapOptions);
+                 
+                 // Creating a Layer object
+                 var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+                 
+                 // Adding layer to the map
+                 map.addLayer(layer);
+              </script>
+        <hr>
+       
     <!----Making a criteria selection grid-->
   <div id="searchOutput">Search Output Goes Here</div>
 
@@ -90,11 +113,34 @@
  
 <!--   </div> -->
   <!--   </div-->
+   <!-- Div for the slider box -->
+   <div class="containter-fluid">
+      <div class="slider">
+      <div class="slider__loader"></div>
+      <ul class="slider__list"></ul>
+      <div class="slider__nav slider__nav--prev"><svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M30.83 32.67l-9.17-9.17 9.17-9.17-2.83-2.83-12 12 12 12z"/></svg>    </div>
+      <div class="slider__nav slider__nav--next">
+        <svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M17.17 32.92l9.17-9.17-9.17-9.17 2.83-2.83 12 12-12 12z"/></svg>
+      </div>
+    </div>
+    <script id="template" type="text/x-handlebars-template">{{#.}}
+      <li class="slider__card">
+        <div class="slider__cardHeader" style="background-image:url({{backgroundImage}});"><img class="slider__cardHeaderImage" src="{{picture}}"/>
+          <h1 class="slider__cardHeaderTitle">{{name.first}} {{name.last}}</h1>
+        </div>
+        <div class="slider__cardContent">
+          <p>{{about}}</p>
+          <div class="slider__cardMeta">{{registered}}</div>
+        </div>
+      </li>{{/.}}
+    </script></div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/popper.js@1.14.7/dist/umd/popper.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/js/bootstrap-select.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/22914/fetch.js"></script>
   <script src="./assets/js/app.js"></script>
+  <script src="./assets/js/slider.js"></script>
 </body>
 </html>
