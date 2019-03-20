@@ -1,10 +1,6 @@
-//switching to v.4 bootstrap for the selectpicker
-///$.fn.selectpicker.Constructor.BootstrapVersion = '4';
-
-
 //code for the JS dropdown
 
-
+let animalsArray = [];
 $('#locationSearch').val(" ");
 
 
@@ -33,7 +29,7 @@ function myFunction() {
 let var_type='';
 const breeds =function(type) {
    var_type=type;
-   $('#appendHere').empty();
+   //$('.breedSelect').empty();
    console.log(var_type);
    fetch("https://api.petfinder.com/v2/oauth2/token", {
  body: "grant_type=client_credentials&client_id=7vPkOzV32lbGFsqbixmd6GU4C5fy4YZfzoeQIssKaQqWeRz7ze&client_secret=PrtarLPlKWCLgUiEITq7EuiC2BmNnm8GOOmNb9d2",
@@ -51,9 +47,15 @@ method: "POST"
        method: 'GET'
      }).then(function(response) {
        for (i=0;i<response.breeds.length;i++){
-       $('#appendHere').append(`<a href="#">${response.breeds[i].name}</a>`);
+      $('#breedSelect').append(`<option value="${response.breeds[i].name}">${response.breeds[i].name}</option>`);
+       console.log(`${response.breeds[i].name}`)
        }
+    //   $('.breedSelect').selectpicker('refresh');
+    //$("#breedSelect").append('<option value="'+"Casper"+'">'+"Casper"+'</option>');
+    $("#breedSelect").selectpicker('refresh');
 
+    ///   $(".breedSelect").selectpicker("refresh");
+    
      });});
    };
 
@@ -77,11 +79,15 @@ const petDetails= function(){
            headers: {Authorization: `Bearer  ${a.access_token}`},
            method: 'GET'
          }).then(function(response) {
-           console.log(response.animals);
+          
+           animalsArray = [...response.animals];
+           console.log(animalsArray);
            });
 });
+
 };
 $('.petLocate').on('click', petDetails);
+
 
 // zipCode function
 
@@ -98,7 +104,7 @@ function retrieve_zip() {
          "&lat=" + lat +
          "&lon=" + long;
 
-       //document.getElementsByTagName("head")[0].appendChild(script);
+       document.getElementsByTagName("head")[0].appendChild(script);
      });
    }
  }
@@ -110,7 +116,7 @@ function retrieve_zip() {
    // $("#locationSearch").empty();
    console.log(zipCode);
    $('#locationSearch').val(zipCode);
-   
+
  }
 
  // call the method
