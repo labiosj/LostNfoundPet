@@ -21,30 +21,38 @@ function retrieve_zip() {
   }
 }
 
-var zipCode;
+let varzipCode='';
+console.log('nozip');
 
 function zipcode_callback(json) {
   const zip_code = json.display_name.split(',');
   var zipCode = zip_code[5];
   $('#locationSearch').val(" zipCode ");
   // $("#locationSearch").empty();
-  console.log(zipCode);
+  // console.log(zipCode);
+  varzipCode=zipCode.trim();
+ 
   $('#locationSearch').val(zipCode);
 
 }
 
 // call the method
 retrieve_zip();
-
+let vardistanceVal='';
+let breedSelector='';
 //DISTANCE STUFF
 var distanceVal;
 
 $(document).ready(function () {
   $("#distSelect").change(function () {
   distanceVal = $(this);
-  alert(distanceVal.val()); 
+  vardistanceVal=distanceVal.val();
+  alert(vardistanceVal); 
    })
-  
+   $("#breedSelect").change(function () {
+    breedSelector = $(this).val();
+    alert(breedSelector); 
+     })
   });
 
 
@@ -80,7 +88,6 @@ let var_type='';
 const breeds =function(type) {
    var_type=type;
    //$('.breedSelect').empty();
-   console.log(var_type);
    fetch("https://api.petfinder.com/v2/oauth2/token", {
  body: "grant_type=client_credentials&client_id=7vPkOzV32lbGFsqbixmd6GU4C5fy4YZfzoeQIssKaQqWeRz7ze&client_secret=PrtarLPlKWCLgUiEITq7EuiC2BmNnm8GOOmNb9d2",
  headers: {
@@ -98,7 +105,7 @@ method: "POST"
      }).then(function(response) {
        for (i=0;i<response.breeds.length;i++){
       $('#breedSelect').append(`<option value="${response.breeds[i].name}">${response.breeds[i].name}</option>`);
-       console.log(`${response.breeds[i].name}`)
+      //  console.log(`${response.breeds[i].name}`)
        }
  
     $("#breedSelect").selectpicker('refresh');
@@ -119,9 +126,13 @@ const petDetails= function(){
       method: "POST"
      }).then(async function (response) {
        let a = await response.json()
-       console.log(a.access_token)
-
-   const petUrl = 'https://api.petfinder.com/v2/animals?type=dog&location=07097';
+       console.log(a.access_token);
+       console.log(varzipCode);
+       console.log(vardistanceVal);
+       console.log(var_type);
+       console.log(breedSelector);
+      //  const petUrl =  'https://api.petfinder.com/v2/animals?type=Dog&location=07097';
+   const petUrl = `https://api.petfinder.com/v2/animals?type=${var_type}&location=${varzipCode}&breed=${breedSelector}`;
        $.ajax({
            url: petUrl,
            headers: {Authorization: `Bearer  ${a.access_token}`},
@@ -130,8 +141,8 @@ const petDetails= function(){
           
            animalsArray = [...response.animals];
            console.log(animalsArray);
-           console.log(zipCode);
-           console.log(distanceVal);
+          //  console.log(zipCode);
+          //  console.log(distanceVal);
            });
 });
 
