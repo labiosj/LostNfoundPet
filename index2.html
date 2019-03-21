@@ -35,17 +35,20 @@
         <li class="slider__card">
           <div class="slider__cardHeader" style="background-image:url({{backgroundImage}});"><img class="slider__cardHeaderImage" src="{{picture}}"/>
  
-               <h1 class="slider__cardHeaderTitle">{{name}} </h1>
+               <h1 class="slider__cardHeaderTitle"> {{name}} </h1>
                 {{#if photos.0.medium}}
                 <img src="{{photos.0.medium}}" width="35%">
                 {{else}}
-                <img src="https://via.placeholder.com/150" width="35%">
+                <!-- <img src="https://via.placeholder.com/150" width="35%"> -->
+                <img src="http://lorempixel.com/output/cats-q-g-150-150-1.jpg">
+                <!-- <img src="/assets/images/placeholder-image.jpg"> -->
                 {{/if}}
           </div>
           <div class="slider__cardContent">
-            <p>{{gender}}</p>
-            <p>{{description}}</p>
-            <p>{{pi}}</p>
+            <p><strong>Gender:</strong> {{gender}}</p>
+            <p><strong>Breed:</strong> {{breeds.primary}}</p>
+            <p><strong>Details: </strong>{{description}}</p>
+            <p><strong>Contact Email:</strong> {{contact.email}}</p>
             <div class="slider__cardMeta">{{id}}</div>
           </div>
         </li>

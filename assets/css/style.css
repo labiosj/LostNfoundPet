@@ -137,9 +137,10 @@ body {
 }
 .slider {
   position: relative;
-  width: 80%;
+  /* Changed width below from 80% */
+  width: 50%; 
   margin: 3em auto 0;
-  min-height: 400px;
+  min-height: 300px;
 }
 @media (min-width: 750px) {
   .slider {
@@ -199,7 +200,7 @@ body {
   background-color: #ec008c;
   display: flex;
   align-items: center;
-  padding: 0 1.25em;
+  padding: 0 2.25em;
   background-size: cover;
   background-position: center;
   border-top-left-radius: 3px;
@@ -223,7 +224,7 @@ body {
 }
 .slider__cardHeaderImage {
   margin-right: 1em;
-  width: 60px;
+  width: 80px;
   height: auto;
   display: block;
   border-radius: 60px;
@@ -244,6 +245,7 @@ body {
   line-height: 1.125;
   font-size: 1.25em;
   font-weight: 300;
+  padding-right: 20px;
   z-index: 10;
 }
 @media (min-width: 750px) {
