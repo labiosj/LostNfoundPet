@@ -1,4 +1,6 @@
 const OAuth = require('oauth');
+const axios = require('axios');
+const CircularJSON = require('circular-json');
 
 const oauth = new OAuth.OAuth(
     'https://api.twitter.com/oauth/request_token',
@@ -23,5 +25,20 @@ module.exports = function (app) {
                 console.log(err, data, res);
             }
         )
+    });
+
+    app.get('/api/animals/:type/:zipcode/:breed/:token', async function (req, res) {
+        const { type, zipcode, breed, token } = req.params;
+        const petUrl = `https://api.petfinder.com/v2/animals?type=${type}&location=${zipcode}&breeds=${breed}`;
+
+        axios.get(petUrl, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(function (response) {
+            res.json(response.data);
+        }).catch(function(err) {
+            res.json(err);
+        })
     });
 }
