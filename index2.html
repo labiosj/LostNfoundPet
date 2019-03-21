@@ -34,10 +34,18 @@
       <script id="template" type="text/x-handlebars-template">{{#.}}   
         <li class="slider__card">
           <div class="slider__cardHeader" style="background-image:url({{backgroundImage}});"><img class="slider__cardHeaderImage" src="{{picture}}"/>
-            <h1 class="slider__cardHeaderTitle">{{name}}, {{breed}}</h1>
+ 
+               <h1 class="slider__cardHeaderTitle">{{name}} </h1>
+                {{#if photos.0.medium}}
+                <img src="{{photos.0.medium}}" width="35%">
+                {{else}}
+                <img src="https://via.placeholder.com/150" width="35%">
+                {{/if}}
           </div>
           <div class="slider__cardContent">
             <p>{{gender}}</p>
+            <p>{{description}}</p>
+            <p>{{pi}}</p>
             <div class="slider__cardMeta">{{id}}</div>
           </div>
         </li>
