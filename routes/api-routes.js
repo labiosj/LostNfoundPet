@@ -36,7 +36,7 @@ module.exports = function (app) {
                 Authorization: `Bearer ${token}`
             }
         }).then(function (response) {
-            res.json(response.data);
+            res.json(response.data.animals);
         }).catch(function(err) {
             res.json(err);
         })

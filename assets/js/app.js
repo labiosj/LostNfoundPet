@@ -136,8 +136,8 @@ const petDetails = function () {
     const petUrl = `http://localhost:5000/api/animals/${var_type}/${varzipCode}/${breedSelector}/${a.access_token}`;
     $.get(petUrl)
     .then(function (response) {
-      // console.log(response);
-      animalsArray = [...response.animals];
+       console.log(response);
+      animalsArray = [...response];
       // console.log(animalsArray);
       //  console.log(zipCode);
       //  console.log(distanceVal);
