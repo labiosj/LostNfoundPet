@@ -1,0 +1,31 @@
+{
+  "name": "lostnfoundpet",
+  "version": "1.0.0",
+  "description": "Welcome to the lostNfound Petfinder app!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkuruba/LostNfoundPet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rkuruba/LostNfoundPet/issues"
+  },
+  "homepage": "https://github.com/rkuruba/LostNfoundPet#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "circular-json": "^0.5.9",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "node-fetch": "^2.3.0",
+    "oauth": "^0.9.15",
+    "superagent": "^4.1.0"
+  }
+}

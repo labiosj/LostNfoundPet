@@ -6,11 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
 
-  <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
 
     <title>LostNFoundPet</title>
+   
+
 </head>
 
 <body>
@@ -20,53 +22,61 @@
   <div class="container">
     <h1 class="display-2">LostNFoundPets</h1>
     <p class="lead">Let us help locate your lost pet.</p>
-    <hr class="my-4">
+    <br>
+   
     <!--- Adding fields to enter location data-->
    
     <div class="dropdown">
-      <input id="locationSearch" value="Enter a zip code">
-      <button class="btn btn-secondary dropdown-toggle distButton" type="button" id="dropdownMenuButton" value="distance" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Select Your Distance
-      </button>
-      <div class="dropdown-menu" id="distDropDown" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" id="dist1DropDown" href="#" value="1">1 Miles</a>
-        <a class="dropdown-item" id="dist5DropDown" href="#" value="5">5 Miles</a>
-        <a class="dropdown-item" id="dist500DropDown" href="#" value="500">500 Miles</a>
-      </div>
+      Enter your zipcode <input class="form-control" id="locationSearch" value="Enter a zip code">
+      <br>
+      <br>
     </div>
-     
-    <hr>
+
+    <select class="selectpicker" id="distSelect" title="Choose your distance">
+        <option value="1">1 Miles</option>
+        <option value="5">5 Miles</option>
+        <option value="500">500 Miles</option>
+      </select>
+      
+    <br>
    <!--- Area for filters and additional criteria-->
-    <hr>
+    <br>
     <button type="button" class="btn btn-primary dogType">Dog</button>
     <button type="button" class="btn btn-primary catType">Cat</button>
+    
+    <!---Picker for select-->
+   
+      
+    <select class="selectpicker" id="breedSelect" title="Select a breed" data-live-search="true">
 
-      <div class="dropdown">
+        
+      </select>
+
+    <!-- <div class="dropdown">
           <button onclick="myFunction()" class="dropbtn breedSelect">Select Breed</button>
           <div id="myDropdown" class="dropdown-content">
             <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-            <a href="#">Breed 1</a>
-            <a href="#">Breed 2</a>
-            <a href="#">Breed 3</a>
+            <a href="#" id="appendHere"></a>
+             <option value="1">1 Miles</option>
           </div>
-        </div>
+        </div> -->
     <!---Adding a button class to locate a pet-->
     <button class="btn btn-outline-danger petLocate">Click to Locate your Pet</button>
     <hr>
     <!----Making a criteria selection grid-->
   <div id="searchOutput">Search Output Goes Here</div>
 
-   <!--- Area for facebook upload-->
-   <!-- Upload picture to facebook-->
+   <!--- Area for twitter upload-->
+   <!-- Upload picture to twitter-->
    <form>
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Did you find a Pet? - Enter Description</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-      <label for="facebook-upload">Upload picture to Facebook</label>
-      <input type="file" class="form-control-file" id="facebook-file">
-      <button class="btn btn-secondary" type="button" id="uploadButton" aria-haspopup="true" aria-expanded="false">
-          Upload to Facebook
-        </button>
+      <textarea class="form-control tweetDesc" rows="1"></textarea>
+      <label for="twitter-upload">Upload picture to Twitter</label>
+      <input type="file" class="form-control-file" id="twitter-file">
+      <button class="btn btn-secondary twitterType" type="button" id="uploadButton" aria-haspopup="true" aria-expanded="false">
+          Upload to Twitter
+      </button>
     </div>
   </form>
    <hr>
@@ -83,10 +93,12 @@
  
 <!--   </div> -->
   <!--   </div-->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://unpkg.com/popper.js@1.14.7/dist/umd/popper.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/js/bootstrap-select.min.js"></script>
+  <script> $.fn.selectpicker.Constructor.BootstrapVersion = '4'; </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.js"></script>
-  <script src="./assets/js/app.js"></script>
+  <script src="../assets/js/app.js"></script>
 </body>
 </html>

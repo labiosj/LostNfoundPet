@@ -1,0 +1,42 @@
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.jumbotron {
+    margin:15px 30px 0px 30px;
+    border-radius:10px;
+    background:linear-gradient(rgba(0, 0, 250, 0.25), rgba(125, 250, 250, 0.45)),
+    url('../images/la-finesse-daffi.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color:white !important;
+    height:700px;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  margin-top:50px;
+}
+
+#map_container {
+  position: relative;
+}
+
+#map {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 22.25%;
+    padding-top: 30px;
+    position: relative;
+}
+
+h2 {
+	font-family: "Gill Sans", sans-serif;
+}
+
+h5 {
+	font-family: "Gill Sans", sans-serif;
+}
