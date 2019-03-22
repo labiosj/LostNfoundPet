@@ -1,7 +1,25 @@
 
+.display-2 {
+  color: #5ac6f1;
+}
+
+.lead {
+  color: #5ac6f1;
+}
+
+.list-group-item {
+background-color: none;
+}
+
+#lists {
+  width: 150px;
+  color: grey;
+}
+
 body, html {
   height: 100%;
   margin: 0;
+  
 }
 
 .jumbotron {
@@ -9,10 +27,10 @@ body, html {
     border-radius:10px;
     background:linear-gradient(rgba(0, 0, 250, 0.25), rgba(125, 250, 250, 0.45)),
     url('../images/la-finesse-daffi.jpg');
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-attachment: fixed;
-    color:white !important;
-    height:700px;
+    color: white:
+    height:auto;
 }
 
 .container {

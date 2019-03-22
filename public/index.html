@@ -29,18 +29,18 @@
     <div class="dropdown">
       Enter your zipcode <input class="form-control" id="locationSearch" value="Enter a zip code">
       <br>
-      <br>
+    
     </div>
 
-    <select class="selectpicker" id="distSelect" title="Choose your distance">
+    <!-- <select class="selectpicker" id="distSelect" title="Choose your distance">
         <option value="1">1 Miles</option>
         <option value="5">5 Miles</option>
         <option value="500">500 Miles</option>
-      </select>
+      </select> -->
       
-    <br>
+  
    <!--- Area for filters and additional criteria-->
-    <br>
+  
     <button type="button" class="btn btn-primary dogType">Dog</button>
     <button type="button" class="btn btn-primary catType">Cat</button>
     
@@ -61,25 +61,30 @@
           </div>
         </div> -->
     <!---Adding a button class to locate a pet-->
-    <button class="btn btn-outline-danger petLocate">Click to Locate your Pet</button>
+    <button class="btn btn-primary petLocate">Click to Locate your Pet</button>
     <hr>
     <!----Making a criteria selection grid-->
-  <div id="searchOutput">Search Output Goes Here</div>
+  
+  <ul class="list-group list-group-flush" id="searchOutput">
+     
+    </ul>
 
    <!--- Area for twitter upload-->
    <!-- Upload picture to twitter-->
+  
    <form>
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">Did you find a Pet? - Enter Description</label>
+      <label for="exampleFormControlTextarea1">Make a post on Twitter below if you found a pet!</label>
       <textarea class="form-control tweetDesc" rows="1"></textarea>
-      <label for="twitter-upload">Upload picture to Twitter</label>
-      <input type="file" class="form-control-file" id="twitter-file">
-      <button class="btn btn-secondary twitterType" type="button" id="uploadButton" aria-haspopup="true" aria-expanded="false">
+      <!-- <label for="twitter-upload">Upload picture to Twitter</label> -->
+      <!-- <input type="file" class="form-control-file" id="twitter-file"> -->
+      <br>
+      <button class="btn btn-primary twitterType" type="button" id="uploadButton" aria-haspopup="true" aria-expanded="false">
           Upload to Twitter
       </button>
     </div>
   </form>
-   <hr>
+ 
    <!----Making a criteria selection grid-->
 
   

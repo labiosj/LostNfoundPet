@@ -138,11 +138,41 @@ const petDetails = function () {
     .then(function (response) {
        console.log(response);
       animalsArray = [...response];
+
       // console.log(animalsArray);
       //  console.log(zipCode);
       //  console.log(distanceVal);
+      for (let i = 0; i < animalsArray.length; i++){
+     if (animalsArray[i].photos.length>0){
+       $('#searchOutput').append(`<li class="list-group-item"><img class="rounded" src="${animalsArray[i].photos[0].small}" width="10%"></li>`);
+          }
+              
+          $('#searchOutput').append(`<li class="list-group-item"><h3>${animalsArray[i].name}</h3>`);
+          $('#searchOutput').append(`<li class="list-group-item"><h5>${animalsArray[i].breeds.primary}</h5>`);
+          $('#searchOutput').append(`<li class="list-group-item"><h6>${animalsArray[i].description}</h6>`);
+          $('#searchOutput').append(`<li class="list-group-item"><h6>${animalsArray[i].contact.email}</h6><br>`);
+          $('#searchOutput').append(`<li class="list-group-item"><a href="${animalsArray[i].url}">${animalsArray[i].url}</a><br>`);
+
+
+
+      //  $('#searchOutput').append(`<div class="text-left"><h3>${animalsArray[i].name}</h3></div>`);
+      //  $('#searchOutput').append(`<div class="text-left"><h3>${animalsArray[i].breeds.primary}</h3></div>`);
+      //  $('#searchOutput').append(`<div class="text-left"><h3>${animalsArray[i].description}</h3></div>`);
+      //  $('#searchOutput').append(`<div class="text-left"><h3>${animalsArray[i].contact.email}</h3></div>`);
+       
+      };
     });
   });
 
 };
 $('.petLocate').on('click', petDetails);
+
+
+// //$('.stockLogo').append(`<img class="rounded float-left" src="${logoURL}" alt="companyLogo"><br>`);
+// $('.stockInfo').append(`<div class="text-left"><h3>${companyName}</h3></div>`);
+// $('.stockInfo').append(`<div class="text-left"><h3>$${latestPrice}</h3></div>`);
+// $('.stockInfo').append(`<div class="text-left font-weight-bold">News headlines: <p></p></div>`);
+// for (let i = 0; i < headline.length; i++){
+//   console.log(headline[i]);
+//   $('.stockInfo').append(`<div class="text-left"><p>${headline[i]}</p></div>`);;
+
